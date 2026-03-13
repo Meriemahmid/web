@@ -1,1 +1,35 @@
-
+<! DOCTYPE html >
+ <html lang ="en">
+ <head>
+ <meta charset ="UTF -8">
+ <title> GPA Calculator </title>
+ <link rel=" stylesheet " href =" style.css">
+ <script src=" script.js"> </script>
+ </head>
+ <body>
+ <h1> GPA Calculator </h1>
+ <form action =" calculate.php" method =" post " onsubmit =" return validateForm ();">
+ <div id=" courses ">
+ <div class ="course - row">
+ <label> Course : </label>
+ <input type =" text " name =" course []"
+  placeholder ="e.g. Mathematics " required >
+ <label> Credits : </label>
+ <input type =" number " name =" credits []"
+ placeholder ="e.g. 3" min="1" required >
+ <label > Grade : </label>
+ <select name =" grade []">
+ <option value ="4.0">A </ option >
+ <option value ="3.0">B </ option >
+ <option value ="2.0">C </ option >
+ <option value ="1.0">D </ option >
+ <option value ="0.0">F </ option >
+ </select>
+ </div>
+ </div>
+ <button  type=" button " onclick =" addCourse ()">
+ + Add Course
+ </button> <br> <br>
+ <input type =" submit " value =" Calculate GPA">
+ </form>
+ </body>
