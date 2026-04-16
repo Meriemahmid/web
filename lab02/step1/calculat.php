@@ -1,5 +1,5 @@
 <?php
-
+echo "PHP is working";
 // التحقق من وجود البيانات القادمة من الفورم
 if (isset($_POST['course'], $_POST['credits'], $_POST['grade'])) {
 
