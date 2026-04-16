@@ -1,5 +1,6 @@
 <?php
- 
+
+// التحقق من وجود البيانات القادمة من الفورم
 if (isset($_POST['course'], $_POST['credits'], $_POST['grade'])) {
 
     $courses = $_POST['course'];
@@ -9,7 +10,7 @@ if (isset($_POST['course'], $_POST['credits'], $_POST['grade'])) {
     $totalPoints = 0;
     $totalCredits = 0;
 
-    echo "<table>";
+    echo "<table border='1'>";
     echo "<tr>
             <th>Course</th>
             <th>Credits</th>
@@ -17,13 +18,20 @@ if (isset($_POST['course'], $_POST['credits'], $_POST['grade'])) {
             <th>Grade Points</th>
           </tr>";
 
-    for ($i = 0; $i < count($courses); $i++) {
+    // التأكد من أن جميع المصفوفات بنفس الطول
+    $count = min(count($courses), count($credits), count($grades));
 
+    for ($i = 0; $i < $count; $i++) {
+
+        // حماية من XSS
         $course = htmlspecialchars($courses[$i]);
+
+        // تحويل القيم إلى أرقام
         $cr = floatval($credits[$i]);
         $g = floatval($grades[$i]);
 
-        if ($cr <= 0) continue;
+        // تجاهل القيم غير الصحيحة
+        if ($cr <= 0 || $g < 0) continue;
 
         $pts = $cr * $g;
 
