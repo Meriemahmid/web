@@ -71,3 +71,5 @@ if (isset($_POST['course'], $_POST['credits'], $_POST['grade'])) {
 
 } else {
     echo "Data not received.";
+}
+?>
